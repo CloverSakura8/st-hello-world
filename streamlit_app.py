@@ -1,21 +1,69 @@
 import streamlit as st
+from streamlit.components.v1 import html
 
-st.set_page_config(page_title="Automate Boring Office Tasks with ChatGPT and Python",
-                  page_icon=":robot:",
-                  layout="wide")
+# Set page configuration
+st.set_page_config(
+    page_title="Flamingo Dance Party",
+    page_icon="🦩",
+    layout="wide",
+)
 
-st.title("🤖 Automate Boring Office Tasks with ChatGPT and Python")
+# CSS and Flamingo Dance Animation
+flamingo_css = """
+<style>
+@keyframes dance {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-20deg); }
+    50% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+    100% { transform: rotate(0deg); }
+}
+.flamingo {
+    animation: dance 2s infinite;
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+}
+</style>
+"""
 
-st.markdown("Learn how to use ChatGPT and Python to automate tasks such as distributing Excel files with Outlook, creating interactive charts from Excel, merging PDFs, and more.")
+flamingo_html = """
+<div style="text-align: center;">
+    <img src="https://i.imgur.com/4ZK6EEN.png" alt="Dancing Flamingo" class="flamingo">
+</div>
+"""
 
-st.markdown("""
-<a href="https://chatgpt-static.s3.amazonaws.com/chats/tx61280.html" target="_blank" style="font-size:20px; font-weight:bold;">Distribute Excel Files With Outlook</a>
-<br>
-<a href="https://chatgpt-static.s3.amazonaws.com/chats/wj70814.html" target="_blank" style="font-size:20px; font-weight:bold;">Automate PowerPoint</a>
-<br>
-<a href="https://chatgpt-static.s3.amazonaws.com/chats/ln81825.html" target="_blank" style="font-size:20px; font-weight:bold;">Create Interactive Charts From Excel</a>
-<br>
-<a href="https://chatgpt-static.s3.amazonaws.com/chats/uf98915.html" target="_blank" style="font-size:20px; font-weight:bold;">Merge PDFs</a>
-<br>
-<a href="https://chatgpt-static.s3.amazonaws.com/chats/qq32478.html" target="_blank" style="font-size:20px; font-weight:bold;">Write E-Mails</a>
-""", unsafe_allow_html=True)
+# Header
+st.title("🦩 Flamingo Dance Party")
+st.markdown(
+    """
+    Welcome to the **Flamingo Dance Party!**  
+    🎮 Play games, interact with dancing flamingos, and have fun!
+    """
+)
+
+# Flamingo Dance Display
+html(flamingo_css + flamingo_html, height=300)
+
+# Sidebar Navigation
+st.sidebar.title("Menu")
+menu = st.sidebar.radio("Choose a section:", ["Home", "Flamingo Facts", "Leaderboard"])
+
+# Main Page Sections
+if menu == "Home":
+    st.header("Home: Let the Party Begin!")
+    st.write("Enjoy this adorable dancing flamingo!")
+elif menu == "Flamingo Facts":
+    st.header("🦩 Fun Flamingo Facts")
+    st.write("""
+    - Flamingos are social birds that live in colonies.
+    - They get their pink color from their diet of shrimp and algae.
+    - Flamingos can dance! They perform group rituals that look like dances.
+    """)
+elif menu == "Leaderboard":
+    st.header("🏆 Leaderboard")
+    st.write("This section will show top scorers for future flamingo games.")
+
+# Footer
+st.markdown("---")
+st.markdown("Built with 💖 for flamingo lovers.")
